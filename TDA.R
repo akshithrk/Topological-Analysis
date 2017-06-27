@@ -50,7 +50,7 @@ par(mfrow=c(1,1))
 persp(Xseq, Yseq,
       matrix(X, ncol = length(Yseq), nrow = length(Xseq)), xlab = "Xseq on X-axis",
       ylab = "Yseq on Y-axis", zlab = "Z-axis", theta = "-30", phi = "20", ltheta = "30",
-      col = 2, border = NA, main = "X", d = "0.5", scale = FALSE,
+      col = 3, border = NA, main = "X", d = "0.5", scale = FALSE,
       expand = 0.5, shade = 0.9)
 
 #presp = perspective plot
@@ -61,21 +61,21 @@ persp(Xseq, Yseq,
 #theta = turn plot right or view plot from left
 #phi = view plot from top
 #ltheta = color intensity
-#d
-#explnd = lesser number bigger the plot
+#d = expands the coordinate point box in which the plot exists
+#explnd = expland/stretch the graph. lesser number bigger the plot i.e. more stretch
 
 
 #kde viz
 persp(Xseq, Yseq,
       matrix(KDE, ncol = length(Yseq), nrow = length(Xseq)), xlab = "",
-      ylab = "", zlab = "", theta = "-20", phi = "35", ltheta = "50",
-      col = 2, border = NA, main = "KDE", d = "0.5", scale = FALSE,
-      expand = 3, shade = 0.9)
+      ylab = "", zlab = "", theta = "-30", phi = "25", ltheta = "50",
+      col = 2, border = NA, main = "KDE", d = "0.3", scale = FALSE,
+      expand = 2, shade = 0.9)
 
 #distance function viz
 persp(Xseq, Yseq,
       matrix(distance, ncol = length(Yseq), nrow = length(Xseq)), xlab = "",
-      ylab = "", zlab = "", theta = "-20", phi = "35", ltheta = "50",
+      ylab = "", zlab = "", theta = "-30", phi = "35", ltheta = "50",
       col = 2, border = NA, main = "Distance Function", d = "0.5", scale = FALSE,
       expand = 3, shade = 0.9)
 
