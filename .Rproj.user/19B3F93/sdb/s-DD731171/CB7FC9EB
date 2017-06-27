@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1498532168350.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "CB7FC9EB",
+    "lastKnownWriteTime" : 1498532186,
+    "last_content_update" : 1498532186066,
+    "path" : "P:/R/Topological Analysis/TDA.R",
+    "project_path" : "TDA.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
