@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "",
+    "contents" : "getwd()\ninstall.packages(\"TDA\")\nlibrary(TDA)\n\n",
     "created" : 1498532168350.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "3240309106",
     "id" : "CB7FC9EB",
-    "lastKnownWriteTime" : 1498532186,
-    "last_content_update" : 1498532186066,
+    "lastKnownWriteTime" : 1498532650,
+    "last_content_update" : 1498532650472,
     "path" : "P:/R/Topological Analysis/TDA.R",
     "project_path" : "TDA.R",
     "properties" : {
