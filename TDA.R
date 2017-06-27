@@ -45,6 +45,22 @@ Kdist
 
 attach(mtcars)
 par(mfrow=c(1,1))
+
+#data viz
+persp(Xseq, Yseq,
+      matrix(X, ncol = length(Yseq), nrow = length(Xseq)), xlab = "Xseq on X-axis",
+      ylab = "Yseq on Y-axis", zlab = "Z-axis", theta = "-30", phi = "20", ltheta = "30",
+      col = 2, border = NA, main = "X", d = "0.5", scale = FALSE,
+      expand = 0.5, shade = 0.9)
+
+#presp = perspective plot
+#theta = turn plot right or view plot from left
+#phi = view plot from top
+#ltheta = color intensity
+#d
+#explnd = lesser number bigger the plot
+
+
 #kde viz
 persp(Xseq, Yseq,
       matrix(KDE, ncol = length(Yseq), nrow = length(Xseq)), xlab = "",
