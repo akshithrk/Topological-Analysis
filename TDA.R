@@ -46,7 +46,7 @@ Kdist
 attach(mtcars)
 par(mfrow=c(1,1))
 
-#data viz
+#X data viz
 persp(Xseq, Yseq,
       matrix(X, ncol = length(Yseq), nrow = length(Xseq)), xlab = "Xseq on X-axis",
       ylab = "Yseq on Y-axis", zlab = "Z-axis", theta = "-30", phi = "20", ltheta = "30",
@@ -54,6 +54,10 @@ persp(Xseq, Yseq,
       expand = 0.5, shade = 0.9)
 
 #presp = perspective plot
+#persp() returns the viewing transformation matrix, say VT, a 4 x 4 matrix suitable for projecting 3D coordinates (x,y,z) 
+#into the 2D plane using homogeneous 4D coordinates (x,y,z,t). 
+#It can be used to superimpose additional graphical elements on the 3D plot, by lines() or points(), using the function trans3d().
+#https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/persp.html
 #theta = turn plot right or view plot from left
 #phi = view plot from top
 #ltheta = color intensity
