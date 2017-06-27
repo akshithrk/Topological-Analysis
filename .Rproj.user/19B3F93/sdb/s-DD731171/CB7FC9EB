@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "getwd()\ninstall.packages(\"TDA\")\nlibrary(TDA)\n\n",
+    "contents" : "getwd()\ninstall.packages(\"Hmisc\")\nlibrary(Hmisc)\ninstall.packages(\"TDA\")\nlibrary(TDA)\n\nX <- circleUnif(400)\nX\ndescribe(X)\nsummary(X)\nXlim <- c(-1.6, 1.6)\nYlim <- c(-1.7, 1.7)\nby <- 0.065\n\nXseq <- seq(Xlim[1], Xlim[2], by = by)\nYseq <- seq(Ylim[1], Ylim[2], by = by)\nGrid <- expand.grid(Xseq, Yseq)\n\n# distance function\ndistance <- distFct(X = X, Grid = Grid)\ndistance\n\nm0 <- 0.1\n\n#dtm function\n\nDTM <- dtm(X = X, Grid = Grid, m0 = m0)\ndtm\n\n#kNN density estimator\nk <- 60\nkNN <- knnDE(X = X, Grid = Grid, k = k)\nkNN\n\n\n\n#kernel distance estimator\nh <- 0.3\nKDE <- kde(X = X, Grid = Grid, h = h)\nKdist <- kernelDist(X = X, Grid = Grid, h = h)\nKdist\n\n#viz a 2 dimensional example \n#using persp from the graphics package\n\nattach(mtcars)\npar(mfrow=c(1,1))\n#kde viz\npersp(Xseq, Yseq,\n      matrix(KDE, ncol = length(Yseq), nrow = length(Xseq)), xlab = \"\",\n      ylab = \"\", zlab = \"\", theta = \"-20\", phi = \"35\", ltheta = \"50\",\n      col = 2, border = NA, main = \"KDE\", d = \"0.5\", scale = FALSE,\n      expand = 3, shade = 0.9)\n\n#distance function viz\npersp(Xseq, Yseq,\n      matrix(distance, ncol = length(Yseq), nrow = length(Xseq)), xlab = \"\",\n      ylab = \"\", zlab = \"\", theta = \"-20\", phi = \"35\", ltheta = \"50\",\n      col = 2, border = NA, main = \"Distance Function\", d = \"0.5\", scale = FALSE,\n      expand = 3, shade = 0.9)\n\n#dtm function viz\npersp(Xseq, Yseq,\n      matrix(dtm, ncol = length(Yseq), nrow = length(Xseq)), xlab = \"\",\n      ylab = \"\", zlab = \"\", theta = \"-20\", phi = \"35\", ltheta = \"50\",\n      col = 2, border = NA, main = \"DTM\", d = \"0.5\", scale = FALSE,\n      expand = 3, shade = 0.9)\n\n#knn viz\npersp(Xseq, Yseq,\n      matrix(kNN, ncol = length(Yseq), nrow = length(Xseq)), xlab = \"\",\n      ylab = \"\", zlab = \"\", theta = \"-20\", phi = \"35\", ltheta = \"50\",\n      col = 2, border = NA, main = \"kNN\", d = \"0.5\", scale = FALSE,\n      expand = 3, shade = 0.9)\n\n#kernel distance viz\npersp(Xseq, Yseq,\n      matrix(Kdist, ncol = length(Yseq), nrow = length(Xseq)), xlab = \"\",\n      ylab = \"\", zlab = \"\", theta = \"-20\", phi = \"35\", ltheta = \"50\",\n      col = 2, border = NA, main = \"Kernel Distance\", d = \"0.5\", scale = FALSE,\n      expand = 3, shade = 0.9)\n",
     "created" : 1498532168350.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3240309106",
+    "hash" : "3001377057",
     "id" : "CB7FC9EB",
-    "lastKnownWriteTime" : 1498532650,
-    "last_content_update" : 1498532650472,
+    "lastKnownWriteTime" : 1498536346,
+    "last_content_update" : 1498536346528,
     "path" : "P:/R/Topological Analysis/TDA.R",
     "project_path" : "TDA.R",
     "properties" : {
