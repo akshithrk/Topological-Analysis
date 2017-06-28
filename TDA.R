@@ -89,8 +89,8 @@ persp(Xseq, Yseq,
 #knn viz
 persp(Xseq, Yseq,
       matrix(kNN, ncol = length(Yseq), nrow = length(Xseq)), xlab = "",
-      ylab = "", zlab = "", theta = "-20", phi = "35", ltheta = "50",
-      col = 2, border = NA, main = "kNN", d = "0.5", scale = FALSE,
+      ylab = "", zlab = "", theta = "-25", phi = "25", ltheta = "50",
+      col = "Yellow", border = NA, main = "kNN", d = "0.5", scale = FALSE,
       expand = 3, shade = 0.9)
 
 #kernel distance viz
