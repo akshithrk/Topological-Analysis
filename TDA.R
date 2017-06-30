@@ -156,6 +156,9 @@ maxdimension <- 1 # components and loops
 Diag_rips <- ripsDiag(X = Circles, maxdimension, maxscale,
                  library = "GUDHI", printProgress = FALSE)
 
+#selection of smoothing parameters
+
+
 plot(Circles)
 plot(Diag_rips[["diagram"]])
 #Black points represent connected components and red
