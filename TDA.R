@@ -156,9 +156,6 @@ maxdimension <- 1 # components and loops
 Diag_rips <- ripsDiag(X = Circles, maxdimension, maxscale,
                  library = "GUDHI", printProgress = FALSE)
 
-#selection of smoothing parameters
-
-
 plot(Circles)
 plot(Diag_rips[["diagram"]])
 #Black points represent connected components and red
@@ -170,6 +167,36 @@ plot(Diag_rips[["diagram"]])
 # 3. Bottleneck and Wasserstein Distances
 # 4. Landscapes and Silhouettes
 
+
+#selection of smoothing parameters
+XX1 <- circleUnif(600)
+XX2 <- circleUnif(1000, r = 1.5) + 2.5
+noise <- cbind(runif(80, -2, 5), runif(80, -2, 5))
+X_smooth <- rbind(XX1, XX2, noise)
+# Grid limits
+Xlim <- c(-2, 5)
+Ylim <- c(-2, 5)
+by <- 0.2
+
+parametersKDE <- seq(0.1, 0.6, by = 0.05)
+B <- 50 # number of bootstrap iterations. Should be large.
+alpha <- 0.1 # level of the confidence bands
+
+maxKDE <- maxPersistence(kde, parametersKDE, X_smooth,
+                         lim = cbind(Xlim, Ylim), by = by, sublevel = FALSE,
+                         B = B, alpha = alpha, parallel = TRUE,
+                         printProgress = TRUE, bandFUN = "bootstrapBand")
+
+maxKDE_unparallel <- maxPersistence(kde, parametersKDE, X_smooth,
+                         lim = cbind(Xlim, Ylim), by = by, sublevel = FALSE,
+                         B = B, alpha = alpha, parallel = FALSE,
+                         printProgress = FALSE, bandFUN = "bootstrapBand")
+
+print(summary(maxKDE))
+
+plot(X_smooth, pch = 16, cex = 0.5, main = "Two Circles")
+plot(maxKDE_unparallel, main = "Max Persistence - KDE")
+plot(maxKDE, main = "Max Persistence - KDE")
 
 #Density Clustering
 #Let f be the density of the probability distribution P
