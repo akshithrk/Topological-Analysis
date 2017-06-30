@@ -182,6 +182,7 @@ parametersKDE <- seq(0.1, 0.6, by = 0.05)
 B <- 50 # number of bootstrap iterations. Should be large.
 alpha <- 0.1 # level of the confidence bands
 
+
 maxKDE <- maxPersistence(kde, parametersKDE, X_smooth,
                          lim = cbind(Xlim, Ylim), by = by, sublevel = FALSE,
                          B = B, alpha = alpha, parallel = TRUE,
@@ -194,8 +195,8 @@ maxKDE_unparallel <- maxPersistence(kde, parametersKDE, X_smooth,
 
 print(summary(maxKDE))
 
+par(mfrow = c(1,2), mai = c(0.8, 0.8, 0.35, 0.3))
 plot(X_smooth, pch = 16, cex = 0.5, main = "Two Circles")
-plot(maxKDE_unparallel, main = "Max Persistence - KDE")
 plot(maxKDE, main = "Max Persistence - KDE")
 
 #Density Clustering
@@ -213,3 +214,35 @@ plot(maxKDE, main = "Max Persistence - KDE")
 #which satisfies the tree property:
 #A, B ∈ T implies that A ⊂ B or B ⊂ A or A∩B = ∅.
 
+X1 <- cbind(rnorm(300, 1, .8), rnorm(300, 5, 0.8))
+X2 <- cbind(rnorm(300, 3.5, .8), rnorm(300, 5, 0.8))
+X3 <- cbind(rnorm(300, 6, 1), rnorm(300, 1, 1))
+XX <- rbind(X1, X2, X3)
+
+# Then we use the function clusterTree to compute cluster trees using the k Nearest Neighbors
+#density estimator (k = 100 nearest neighbors) and the Gaussian kernel density estimator,
+#with smoothing parameter h
+
+#knn tree
+TreeKNN <- clusterTree(XX, k = 100, density = "knn",
+                     printProgress = FALSE)
+
+#kde tree
+TreeKDE <- clusterTree(XX, k = 100, h = 0.3, density = "kde",
+                          printProgress = FALSE)
+
+#Lambda and kappa trees for knn & kde
+plot(TreeKNN, type = "lambda", main = "lambda Tree (knn)")
+plot(TreeKNN, type = "kappa", main = "kappa Tree (knn)")
+plot(TreeKDE, type = "lambda", main = "lambda Tree (kde)")
+plot(TreeKDE, type = "kappa", main = "kappa Tree (kde)")
+
+plot(XX)
+?plot
+plot(XX, type = "p")
+install.packages("cluster")
+library("cluster")
+clusplot(x =  XX, color = TRUE)
+?clusplot
+is.vector(XX)
+XX
