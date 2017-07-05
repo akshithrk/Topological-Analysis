@@ -173,6 +173,11 @@ XX1 <- circleUnif(600)
 XX2 <- circleUnif(1000, r = 1.5) + 2.5
 noise <- cbind(runif(80, -2, 5), runif(80, -2, 5))
 X_smooth <- rbind(XX1, XX2, noise)
+plot(XX1)
+plot(XX2)
+plot(noise)
+plot(X_smooth)
+
 # Grid limits
 Xlim <- c(-2, 5)
 Ylim <- c(-2, 5)
@@ -197,7 +202,10 @@ print(summary(maxKDE))
 
 par(mfrow = c(1,2), mai = c(0.8, 0.8, 0.35, 0.3))
 plot(X_smooth, pch = 16, cex = 0.5, main = "Two Circles")
+
+par(mfrow = c(1,2))
 plot(maxKDE, main = "Max Persistence - KDE")
+plot(maxKDE_unparallel)
 
 #Density Clustering
 #Let f be the density of the probability distribution P
@@ -217,8 +225,11 @@ plot(maxKDE, main = "Max Persistence - KDE")
 X1 <- cbind(rnorm(300, 1, .8), rnorm(300, 5, 0.8))
 X2 <- cbind(rnorm(300, 3.5, .8), rnorm(300, 5, 0.8))
 X3 <- cbind(rnorm(300, 6, 1), rnorm(300, 1, 1))
+plot(X1)
+plot(X2)
+plot(X3)
 XX <- rbind(X1, X2, X3)
-
+plot(XX)
 # Then we use the function clusterTree to compute cluster trees using the k Nearest Neighbors
 #density estimator (k = 100 nearest neighbors) and the Gaussian kernel density estimator,
 #with smoothing parameter h
@@ -232,19 +243,20 @@ TreeKDE <- clusterTree(XX, k = 100, h = 0.3, density = "kde",
                           printProgress = FALSE)
 
 #Lambda and kappa trees for knn & kde
+par(mfrow=c(2,2))
 plot(TreeKNN, type = "lambda", main = "lambda Tree (knn)")
-plot(TreeKNN, type = "kappa", main = "kappa Tree (knn)")
 plot(TreeKDE, type = "lambda", main = "lambda Tree (kde)")
+plot(TreeKNN, type = "kappa", main = "kappa Tree (knn)")
 plot(TreeKDE, type = "kappa", main = "kappa Tree (kde)")
 
-par(mfrow)
+par(mfrow = c(1,1))
 
 plot(XX)
 ?plot
 plot(XX, type = "p")
 install.packages("cluster")
 library("cluster")
-clusplot(x =  XX, color = TRUE)
+#clusplot(x =  XX, color = TRUE)
 ?clusplot
 is.vector(XX)
 XX
