@@ -237,6 +237,8 @@ plot(TreeKNN, type = "kappa", main = "kappa Tree (knn)")
 plot(TreeKDE, type = "lambda", main = "lambda Tree (kde)")
 plot(TreeKDE, type = "kappa", main = "kappa Tree (kde)")
 
+par(mfrow)
+
 plot(XX)
 ?plot
 plot(XX, type = "p")
